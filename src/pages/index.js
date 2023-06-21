@@ -3,8 +3,7 @@ import Head from 'next/head';
 // import { Inter } from 'next/font/google'
 import Link from 'next/link';
 import NavBar from '../components/NavBar';
-
-// const inter = Inter({ subsets: ['latin'] })
+import Course from '@/components/Course';
 
 export default function Home() {
   return (
@@ -15,6 +14,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <NavBar />
+      <div>
+        <Course />
+      </div>
     </>
   )
 }
