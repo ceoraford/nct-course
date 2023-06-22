@@ -3,7 +3,7 @@ import Head from 'next/head';
 // import { Inter } from 'next/font/google'
 import Link from 'next/link';
 import NavBar from '../components/NavBar';
-import Course from '@/components/Course';
+import CourseList from '@/components/CourseList';
 
 export default function Home() {
   return (
@@ -14,8 +14,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <NavBar />
+      <h1>Introducing NCT the Course</h1>
+      <p> Your one stop shop for learning everything about the K-pop supergroup NCT.</p>
       <div>
-        <Course />
+        <CourseList />
       </div>
     </>
   )

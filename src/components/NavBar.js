@@ -7,7 +7,7 @@ export default function NavBar() {
     <>
       <nav>
         <ul className={NavBarStyles.container}>
-          <li><Link href="/"><h1>NCT - The Course</h1></Link></li>
+          <li><Link href="/"><h2>NCT - The Course</h2></Link></li>
           <li><Link href="/about"> About </Link> </li>
           <li> <Link href="/courses"> Courses</Link> </li>
           <li><Link href="/requests">Requests</Link></li>
