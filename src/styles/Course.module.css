@@ -1,0 +1,10 @@
+.container {
+  border: 1px solid black;
+  background-color: aliceblue;
+  width: 260px;
+  margin: 5vh;
+  border-radius: 5px;
+}
+.course__info {
+  padding: 10px;
+}
