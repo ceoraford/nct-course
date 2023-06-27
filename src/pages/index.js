@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import NavBar from '../components/NavBar';
 import CourseList from '@/components/CourseList';
+import Testimonials from '@/components/Testimonials';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <div>
         <CourseList />
       </div>
+      <Testimonials />
     </>
   )
 }
