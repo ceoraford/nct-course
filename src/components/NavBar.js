@@ -1,8 +1,11 @@
 import Link from "next/link";
 import NavBarStyles from "../styles/NavBar.module.css";
 import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
 export default function NavBar() {
+  const { user, isLoading } = useUser()
   return (
     <>
       <nav>
@@ -12,7 +15,12 @@ export default function NavBar() {
           <li> <Link href="/courses"> Courses</Link> </li>
           <li><Link href="/requests">Requests</Link></li>
           <li>
-            <LoginButton></LoginButton>
+            {!isLoading && !user && (
+              <LoginButton />
+            )}
+            {user && (
+              <LogoutButton />
+            )}
           </li>
         </ul>
       </nav>
