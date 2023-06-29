@@ -13,15 +13,15 @@ export default function NavBar() {
           <li><Link href="/"><h2>NCT - The Course</h2></Link></li>
           <li><Link href="/about"> About </Link> </li>
           <li> <Link href="/courses"> Courses</Link> </li>
-          <li><Link href="/requests">Requests</Link></li>
-          <li>
-            {!isLoading && !user && (
-              <LoginButton />
-            )}
-            {user && (
+          {!isLoading && !user && (
+            <li><LoginButton /> </li>
+          )}
+          {user && (
+            <>
+              <li><Link href="/profile"> Profile </Link></li>
               <LogoutButton />
-            )}
-          </li>
+            </>
+          )}
         </ul>
       </nav>
     </>
