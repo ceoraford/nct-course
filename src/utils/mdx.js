@@ -1,13 +1,13 @@
 import path from "path";
-import fs, { read } from "fs";
+import fs from "fs";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 import { sync } from "glob";
 
-const articlesPath = path.join(process.cwd(), 'data/articles');
+const coursesPath = path.join(process.cwd(), './src/data/courses');
 
 export async function getSlug() {
-  const paths = sync(`${articlesPath}/*.mdx`);
+  const paths = sync(`${coursesPath}/*.mdx`);
 
   return paths.map((path) => {
     const pathContent = path.split("/");
@@ -18,9 +18,9 @@ export async function getSlug() {
   });
 }
 
-export async function getArticleFromSlug(slug) {
-  const articleDir = path.join(articlesPath, `${slug}.mdx`);
-  const source = fs.readFileSync(articleDir);
+export async function getCourseFromSlug(slug) {
+  const courseDir = path.join(coursesPath, `${slug}.mdx`);
+  const source = fs.readFileSync(courseDir);
   const { content, data } = matter(source);
 
   return {
@@ -36,22 +36,22 @@ export async function getArticleFromSlug(slug) {
   }
 }
 
-export async function getAllArticles() {
-  const articles = fs.readdirSync(path.join(process.cwd(), "data/articles"));
-  return articles.reduce((allArticles, articleSlug) => {
+export async function getAllCourses() {
+  const courses = fs.readdirSync(path.join(process.cwd(), './src/data/courses'));
+  return courses.reduce((allCourses, courseSlug) => {
     const source = fs.readFileSync(
-      path.join(process.cwd(), "data/articles", articleSlug),
+      path.join(process.cwd(), "./src/data/courses", courseSlug),
       "utf-8" 
     );
     const { data } = matter(source);
-    
+
     return [
       {
         ...data,
-        slug: articleSlug.replace(".mdx", ""),
+        slug: courseSlug.replace(".mdx", ""),
         readingTime: readingTime(source).text,
       },
-      ...allArticles,
+      ...allCourses,
     ]
   }, []);
 }
